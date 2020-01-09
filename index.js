@@ -16,7 +16,7 @@ const getInvisibleRecaptchaContent = (siteKey, action, onReady) => {
     'grecaptcha.ready(function() { ' +
         `(${String(onReady)})(); ` +
         'grecaptcha.execute(\'' + siteKey + '\', {action: \'' + action + '\'}).then( '+
-            'function (responseToken) { window.postMessage(responseToken);  } ' +
+            'function (responseToken) { window.ReactNativeWebView.postMessage(responseToken);  } ' +
         ' ); ' +
     '}); ' +
     '</script>' +
@@ -36,7 +36,7 @@ const getNormalRecaptchaContent = (config) => {
     '<script> '+
     'function onloadCallback() { '+
         'window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier("recaptcha-cont", '+
-            '{size: "normal", callback: function(response) { window.postMessage(response); }}); '+
+            '{size: "normal", callback: function(response) { window.ReactNativeWebView.postMessage(response); }}); '+
         'window.recaptchaVerifier.render(); '+
         '} '+
     '</script>'+
