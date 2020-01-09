@@ -18,6 +18,11 @@ export default class MessageWebView extends React.Component {
     constructor(props) {
         super(props)
         this.postMessage = this.postMessage.bind(this)
+        this.reloadCaptcha = this.reloadCaptcha.bind(this)
+
+        this.state = {
+            reloadCount: 0,
+        }
     }
     postMessage(action) {
         this.WebView.postMessage(JSON.stringify(action))
@@ -25,6 +30,11 @@ export default class MessageWebView extends React.Component {
 
     getWebViewHandle = () => {
         return this.webview;
+    }
+    
+    reloadCaptcha() {
+        // console.log('update key..'+this.state.reloadCount);
+        this.setState({reloadCount: this.state.reloadCount + 1});
     }
 
     render() {
@@ -34,6 +44,7 @@ export default class MessageWebView extends React.Component {
             <View style={props.containerStyle}>
             <WebView
                 {...props}
+                key={`try-${this.state.reloadCount}`}
                 style={props.containerStyle}
                 javaScriptEnabled
                 automaticallyAdjustContentInsets
