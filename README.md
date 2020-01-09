@@ -30,6 +30,8 @@ npm install --save react-native-recaptcha-v3
 * `onExecute` A function to handle the response of ReCaptcha. Takes in a parameter that represents the
 response token from the ReCaptcha.
 
+* `onReady` Event executed when captcha is ready.
+
 ### Contribution
 
 Feel like contribution to this repository? The steps are simple:
