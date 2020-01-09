@@ -27,6 +27,7 @@
     "merge": ">=1.2.1"
   },
   "peerDependencies": {
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-webview": "*"
   }
 }
