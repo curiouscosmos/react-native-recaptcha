@@ -38,7 +38,7 @@ export default class MessageWebView extends React.Component {
     }
 
     render() {
-        const { html, source, url, onMessage, ...props } = this.props
+        const { html, source, url, onMessage, onReady, ...props } = this.props
 
         return (
             <View style={props.containerStyle}>
@@ -52,7 +52,7 @@ export default class MessageWebView extends React.Component {
                 source={source ? source : html ? { html } : url}
                 ref={x => {this.webview = x}}
                 onMessage={e => onMessage(e.nativeEvent.data)}
-
+                onReady={() => onReady()}
             />
             </View>
         )
